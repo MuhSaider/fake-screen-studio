@@ -1,0 +1,49 @@
+{
+  "name": "hello",
+  "duration": 9,
+  "fps": 60,
+  "width": 1920,
+  "height": 1080,
+  "windows": [
+    {
+      "id": "browser",
+      "template": "generic",
+      "title": "Article — Edge",
+      "z": 1,
+      "rect": { "x": 220, "y": 130, "width": 1480, "height": 840 },
+      "content": {
+        "lines": [
+          "How these fake screen recordings work",
+          "",
+          "Everything in this video is synthesized: no screen was actually recorded.",
+          "Windows, cursor, typing, and zooms are all rendered from one scenario file.",
+          "An AI agent writes the scenario — the engine animates everything.",
+          "",
+          "1. Open an app (window appears, the background blurs)",
+          "2. Zoom into the work area to keep the viewer focused",
+          "3. Type the content, click the button, done",
+          "",
+          "Every motion is derived from an action. No hand-written keyframes."
+        ]
+      }
+    },
+    {
+      "id": "notepad",
+      "template": "generic",
+      "title": "Notepad",
+      "z": 2,
+      "hidden": true,
+      "rect": { "x": 540, "y": 300, "width": 840, "height": 520 },
+      "content": { "lines": [] }
+    }
+  ],
+  "actions": [
+    { "type": "open_window", "window": "notepad", "at": 1.2 },
+    { "type": "type_text", "window": "notepad", "text": "Hello! All this text was typed by an AI agent.", "at": 3.2 },
+    { "type": "click", "target": { "window": "notepad", "anchor": "body" }, "at": 7.2 }
+  ],
+  "zoomShots": [
+    { "preset": "zoom-to-detail", "start": 2.8, "target": { "window": "notepad", "anchor": "body" } },
+    { "preset": "zoom-out-overview", "start": 6.4, "target": null }
+  ]
+}

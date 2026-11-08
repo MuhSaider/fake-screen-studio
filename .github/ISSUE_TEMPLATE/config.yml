@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or usage help
+    url: https://github.com/MuhSaider/fake-screen-studio/discussions
+    about: Ask how to model something in a scenario, or share what you built.
+  - name: Security report
+    url: https://github.com/MuhSaider/fake-screen-studio/security/advisories/new
+    about: Please report vulnerabilities privately, never in a public issue.

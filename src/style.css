@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #0c0c10;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+#stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.6);
+}
+
+#world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+/* ---------- desktop ---------- */
+
+#desktop {
+  position: absolute;
+  inset: 0;
+}
+
+#wallpaper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1100px 700px at 28% 18%, rgba(76, 150, 255, 0.55), transparent 65%),
+    radial-gradient(900px 650px at 78% 72%, rgba(150, 80, 220, 0.5), transparent 65%),
+    radial-gradient(700px 500px at 60% 40%, rgba(40, 200, 220, 0.25), transparent 70%),
+    linear-gradient(160deg, #0a1530 0%, #101033 55%, #1a0f2e 100%);
+}
+
+#taskbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(235, 235, 235, 0.72);
+}
+
+.task-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+}
+
+/* ---------- fake window ---------- */
+
+.window {
+  position: absolute;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.55);
+  transform-origin: center center;
+}
+
+.titlebar {
+  position: relative;
+  height: 36px;
+  background: #2b2b2b;
+  display: flex;
+  align-items: center;
+}
+
+.titlebar .title {
+  position: absolute;
+  left: 12px;
+  right: 130px;
+  text-align: center;
+  font-size: 12px;
+  color: #d8d8d8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.caps {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 36px;
+  display: flex;
+}
+
+.cap {
+  width: 40px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e6e6e6;
+  font-size: 10px;
+}
+
+.cap.min::before {
+  content: '';
+  width: 10px;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.cap.max::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: 1px solid #e6e6e6;
+}
+
+.window .body {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  background: #1f1f1f;
+  overflow: hidden;
+}
+
+.lines p {
+  margin: 0 0 6px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #cfcfcf;
+}
+
+.lines p.spacer {
+  height: 12px;
+}
+
+.typed {
+  font-family: Consolas, 'Cascadia Mono', monospace;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #eaeaea;
+  white-space: pre-wrap;
+}
+
+.caret {
+  display: inline-block;
+  transform: translateY(2px);
+}
+
+/* ---------- cursor & ripple ---------- */
+
+#cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform-origin: 2px 2px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
+
+#ripple {
+  position: absolute;
+  z-index: 99;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+/* ---------- preview chrome ---------- */
+
+#controls {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(18, 18, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e8e8e8;
+  font-size: 13px;
+  z-index: 10;
+}
+
+#play {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #4cc2ff;
+  color: #062032;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#scrub {
+  width: 320px;
+}
+
+#name {
+  color: #9aa0aa;
+}
+
+#errors {
+  display: none;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  max-width: 640px;
+  margin: 0;
+  padding: 14px 16px;
+  background: rgba(120, 16, 24, 0.92);
+  border: 1px solid #ff6b7a;
+  border-radius: 10px;
+  color: #ffd9dd;
+  font: 13px/1.6 Consolas, monospace;
+  white-space: pre-wrap;
+  z-index: 20;
+}

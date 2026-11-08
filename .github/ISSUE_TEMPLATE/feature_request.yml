@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest a component, a workflow improvement, or an engine capability
+title: "feat: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New visual components are added through the registry (`src/registry/index.ts`)
+        plus an engine handler. If your idea is "a new action type / window template /
+        zoom preset / click anchor", say which one and what it should look like.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the video you are trying to make and what currently blocks it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Scenario fields, parameters, timing behaviour, defaults.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Registry workarounds, multiple windows, manual composition, etc.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This needs a new registry component (and engine handler)
+        - label: This changes rendering output for existing scenarios
+        - label: I am willing to open a pull request

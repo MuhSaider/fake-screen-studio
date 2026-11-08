@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fake Screen Studio — Preview</title>
+  </head>
+  <body>
+    <div id="stage"></div>
+
+    <div id="controls">
+      <button id="play" title="play/pause">⏸</button>
+      <input id="scrub" type="range" min="0" max="9" step="0.01" value="0" />
+      <span id="time">0.00s / 0.00s</span>
+      <span id="name"></span>
+    </div>
+
+    <pre id="errors"></pre>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

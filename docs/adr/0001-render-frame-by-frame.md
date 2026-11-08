@@ -1,0 +1,3 @@
+# Render frame-by-frame di headless Chrome, bukan realtime capture
+
+Preview di browser dan MP4 hasil render harus identik, dan hasil render harus deterministik (frame yang sama selalu menghasilkan gambar yang sama, berapa pun kecepatan mesin). Karena itu kita render frame-by-frame: headless Chrome membuka scenario yang sama dengan preview, engine di-seek ke `t = i / fps` per frame, screenshot di-encode jadi H.264. Alternatifnya realtime capture (`canvas.captureStream`/rekam layar saat playback berjalan) memang lebih cepat, tapi hasilnya bergantung kecepatan mesin — frame bisa patah ketika mesin tersendat di tengah render. Harga yang kami bayar: render lebih lambat dari durasi video, dan itu dianggap bisa diterima.

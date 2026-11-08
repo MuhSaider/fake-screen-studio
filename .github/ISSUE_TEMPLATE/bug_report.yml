@@ -1,0 +1,75 @@
+name: Bug report
+description: Something renders wrong, crashes, or does not install
+title: "bug: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. For anything visual, attach a frame from the MP4 — it is far
+        more useful than a description.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you get instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. npx fake-screen-studio my-video
+        2. npm run render -- scenarios/hello/scenario.json
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario file (or a reduced version)
+      description: Paste the JSON that triggers the problem. Remove anything private.
+      render: json
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output / error
+      description: Last ~20 lines of the command output.
+      render: shell
+
+  - type: input
+    id: version
+    attributes:
+      label: Fake Screen Studio version
+      description: Output of `npx fake-screen-studio --version`, or the version line in your package.json.
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: v22.14.0
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      description: Chrome/Edge/Chromium/Brave, and whether you set `STUDIO_BROWSER`.
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11, macOS 15, Ubuntu 24.04
+    validations:
+      required: true

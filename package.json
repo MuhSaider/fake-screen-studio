@@ -1,0 +1,68 @@
+{
+  "name": "fake-screen-studio",
+  "version": "0.1.0",
+  "description": "Generate fake screen-recording tutorial videos from a JSON scenario — live browser preview, frame-by-frame MP4 render.",
+  "license": "MIT",
+  "author": "Muhammad Said Eriyanto",
+  "homepage": "https://github.com/MuhSaider/fake-screen-studio#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhSaider/fake-screen-studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MuhSaider/fake-screen-studio/issues"
+  },
+  "keywords": [
+    "fake-screen-studio",
+    "screen-recording",
+    "video",
+    "video-generation",
+    "tutorial",
+    "demo-video",
+    "scenario",
+    "json",
+    "mp4",
+    "puppeteer",
+    "ffmpeg",
+    "ai-agent"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "fake-screen-studio": "bin/fake-screen-studio.mjs"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "scripts/",
+    "docs/adr/",
+    "docs/agents/",
+    "scenarios/hello/",
+    "AGENTS.md",
+    "index.html",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "render": "node scripts/render.mjs",
+    "gen:index": "tsx scripts/gen-index.ts",
+    "test": "node --test",
+    "prepublishOnly": "npm test && tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "ffmpeg-static": "5.3.0",
+    "puppeteer-core": "25.16.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "6.4.5"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.25.12": true
+  }
+}
